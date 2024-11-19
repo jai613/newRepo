@@ -1,13 +1,9 @@
-
 # app.py
-
-def add_numbers(a, b):
-    """Add two numbers."""
-    return a + b
-
-def subtract_numbers(a, b):
-    """Subtract two numbers."""
-    return a - b
-
-if __name__ == "__main__":
-    print("This is a simple calculator app.")
+def is_prime(n):
+    """Return True if n is a prime number, otherwise False."""
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
