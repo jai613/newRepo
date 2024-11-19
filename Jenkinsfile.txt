@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Clone the repository
+                checkout scm
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                // Set up a Python virtual environment and install dependencies
+                sh 'python3 -m venv venv'
+                sh '. venv/bin/activate && pip install -r requirements.txt'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                // Run the unit tests
+                sh '. venv/bin/activate && python -m unittest discover'
+            }
+        }
+    }
+    post {
+        always {
+            // Clean up virtual environment after the build
+            sh 'rm -rf venv'
+        }
+        success {
+            echo 'Tests passed successfully!'
+        }
+        failure {
+            echo 'Some tests failed.'
+        }
+    }
+}
