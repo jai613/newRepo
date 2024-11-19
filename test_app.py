@@ -1,15 +1,19 @@
 # test_app.py
-import unittest
-from app import add_numbers, subtract_numbers
+from app import is_prime
 
-class TestApp(unittest.TestCase):
-    def test_add_numbers(self):
-        self.assertEqual(add_numbers(3, 5), 8)
-        self.assertEqual(add_numbers(-3, 3), 0)
+def test_is_prime():
+    # Test known prime numbers
+    assert is_prime(2) == True
+    assert is_prime(3) == True
+    assert is_prime(5) == True
+    assert is_prime(7) == True
+    assert is_prime(11) == True
+    assert is_prime(13) == True
 
-    def test_subtract_numbers(self):
-        self.assertEqual(subtract_numbers(10, 5), 5)
-        self.assertEqual(subtract_numbers(0, 7), -7)
-
-if __name__ == "__main__":
-    unittest.main()
+    # Test non-prime numbers
+    assert is_prime(1) == False
+    assert is_prime(4) == False
+    assert is_prime(6) == False
+    assert is_prime(8) == False
+    assert is_prime(9) == False
+    assert is_prime(15) == False
