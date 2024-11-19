@@ -9,7 +9,7 @@ def test_is_prime():
     assert is_prime(7) == True
     assert is_prime(11) == True
     assert is_prime(13) == True
-
+    assert is_primt(14) == False
     # Test non-prime numbers
     assert is_prime(1) == False
     assert is_prime(4) == False
