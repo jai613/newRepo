@@ -2,6 +2,7 @@
 from app import is_prime
 
 def test_is_prime():
+    print("hello")
     # Test known prime numbers
     assert is_prime(2) == True
     assert is_prime(3) == True
